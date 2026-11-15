@@ -1,6 +1,5 @@
 package io.github.elix113.openf1.test;
 
-import java.io.IOException;
 import java.util.List;
 
 import io.github.elix113.openf1.client.OpenF1Client;
@@ -15,7 +14,7 @@ import io.github.elix113.openf1.models.Lap;
  */
 public class Main {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) {
 		OpenF1Client ofc = new OpenF1Client();
 
 		LapFilter filter = Filter.lap()
