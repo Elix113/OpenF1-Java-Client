@@ -18,7 +18,9 @@
     </distributionManagement>
 
     <name>OpenF1-Java-Client</name>
-    <description>A robust, production-ready Java client wrapper for the OpenF1 API with built-in rate limiting and retries.</description>
+    <description>A robust, production-ready Java client wrapper for the OpenF1 API with built-in rate limiting and
+        retries.
+    </description>
     <url>https://github.com/elix113/OpenF1-Java-Client</url>
 
     <licenses>
@@ -72,25 +74,25 @@
             </plugin>
 
             <plugin>
-             <groupId>org.apache.maven.plugins</groupId>
-             <artifactId>maven-gpg-plugin</artifactId>
-             <version>3.2.7</version>
-             <executions>
-                 <execution>
-                     <id>sign-artifacts</id>
-                     <phase>verify</phase>
-                     <goals><goal>sign</goal></goals>
-                     <configuration>
-                         <gpgArguments>
-                             <arg>--batch</arg>
-                             <arg>--yes</arg>
-                             <arg>--pinentry-mode</arg>
-                             <arg>loopback</arg>
-                         </gpgArguments>
-                     </configuration>
-                 </execution>
-             </executions>
-         </plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.sonatype.central</groupId>
