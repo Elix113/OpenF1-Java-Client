@@ -13,7 +13,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/elix113/OenF1-Java-Client</url>
+            <url>https://maven.pkg.github.com/elix113/OpenF1-Java-Client</url>
         </repository>
     </distributionManagement>
 

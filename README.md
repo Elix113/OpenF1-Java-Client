@@ -3,7 +3,7 @@
 [![Java Version](https://img.shields.io/badge/Java-21%2B-blue.svg)](https://openjdk.org/projects/jdk/21/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Maven Central](https://img.shields.io/badge/Maven%20Central-coming%20soon-orange.svg)](https://search.maven.org/)
-[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-yellow.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0)
+[![License: PolyForm Noncommercial 1.0.0](https://img.shields.io/badge/License-PolyForm%20Noncommercial%201.0.0-green.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0)
 
 A robust, production-ready, and lightweight Java 21 client wrapper for the **OpenF1 API**. Designed with modern 
 Java features, built-in network resilience, proactive rate limiting, and an intuitive fluent filter DSL.
