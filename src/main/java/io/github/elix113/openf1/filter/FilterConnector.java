@@ -1,6 +1,4 @@
-package io.github.elix113.openf1.filter.filters;
-
-import io.github.elix113.openf1.filter.BaseFilter;
+package io.github.elix113.openf1.filter;
 
 /**
  * FilterConnector

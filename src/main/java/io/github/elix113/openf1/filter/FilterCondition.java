@@ -1,6 +1,4 @@
-package io.github.elix113.openf1.filter.filters;
-
-import io.github.elix113.openf1.filter.BaseFilter;
+package io.github.elix113.openf1.filter;
 
 /**
  * Operator
@@ -41,6 +39,18 @@ public class FilterCondition<F extends BaseFilter, T> {
 
 	public FilterConnector<F> le(T value) {
 		return condition("<=", value);
+	}
+
+	public FilterConnector<F> betweenIncluding(T value1, T value2) {
+		ge(value1);
+		le(value2);
+		return new FilterConnector<>(filter);
+	}
+
+	public FilterConnector<F> betweenExcluding(T value1, T value2) {
+		gt(value1);
+		lt(value2);
+		return new FilterConnector<>(filter);
 	}
 
 	@SafeVarargs

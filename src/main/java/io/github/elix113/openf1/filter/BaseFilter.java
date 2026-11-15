@@ -24,8 +24,8 @@ public abstract class BaseFilter {
 			String encodedComparator = "=".equals(comparator)
 				? "="
 				: URLEncoder.encode(comparator, StandardCharsets.UTF_8);
-			String encodedValue = URLEncoder.encode(value.toString(), StandardCharsets.UTF_8)
-				.replace("+", "%20");
+			String encodedValue = URLEncoder.encode(value.toString(), StandardCharsets.UTF_8);
+//				.replace("+", "%20");
 			params.add(encodedKey + encodedComparator + encodedValue);
 		}
 	}

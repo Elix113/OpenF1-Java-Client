@@ -4,6 +4,8 @@ import java.time.Instant;
 
 import io.github.elix113.openf1.client.OpenF1Client;
 import io.github.elix113.openf1.filter.BaseFilter;
+import io.github.elix113.openf1.filter.FilterCondition;
+import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Weather;
 
 public class WeatherFilter extends BaseFilter {
