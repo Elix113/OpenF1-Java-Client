@@ -82,7 +82,6 @@ public class OpenF1Client {
 
 		HttpResponse<String> response = rateLimiter.executeWithRetry(() -> {
 			try {
-				System.out.println(System.currentTimeMillis());
 				return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 			}
 			catch (IOException e) {
@@ -92,7 +91,6 @@ public class OpenF1Client {
 				throw new OpenF1Exception("Client was interrupted", e);
 			}
 		});
-		System.out.println(System.currentTimeMillis());
 		if (response.statusCode() == 404)
 			return List.of();
 		else if (response.statusCode() != 200)
