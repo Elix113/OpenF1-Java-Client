@@ -10,7 +10,6 @@ import java.util.List;
 
 import io.github.elix113.openf1.exceptions.ApiException;
 import io.github.elix113.openf1.exceptions.OpenF1Exception;
-import io.github.elix113.openf1.exceptions.RateLimitExceededException;
 import io.github.elix113.openf1.filter.BaseFilter;
 import io.github.elix113.openf1.filter.filters.CarDataFilter;
 import io.github.elix113.openf1.filter.filters.ChampionshipDriverFilter;
@@ -58,13 +57,10 @@ import tools.jackson.databind.json.JsonMapper;
 public class OpenF1Client {
 
 	public static final String BASE_URL = "https://api.openf1.org/v1/";
-	private static final int MAX_TRIES = 3;
-	private static final long TIMEOUT = 300;
-	private static final double TIMEOUT_FACTOR = 1.5;
-
 
 	private final HttpClient httpClient;
 	private final JsonMapper jsonMapper;
+	private final OpenF1RateLimiter rateLimiter;
 
 	public OpenF1Client() {
 		this.httpClient = HttpClient.newBuilder()
@@ -72,6 +68,7 @@ public class OpenF1Client {
 			.followRedirects(HttpClient.Redirect.NORMAL)
 			.build();
 		this.jsonMapper = new JsonMapper();
+		this.rateLimiter = new OpenF1RateLimiter();
 	}
 
 	public <T> List<T> fetch(BaseFilter filter, Class<T> model) {
@@ -83,31 +80,19 @@ public class OpenF1Client {
 			.GET()
 			.build();
 
-		int attempt = 1;
-		long timeout = TIMEOUT;
-		HttpResponse<String> response;
-
-		try {
-			do {
-				response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-				if (response.statusCode() == 429) {
-					if (attempt == MAX_TRIES)
-						throw new RateLimitExceededException(request.uri());
-
-	//				System.out.println("Rate limited (429). Retrying in " + TIMEOUT + "ms... (Attempt " + attempt + "/" + MAX_TRIES + ")");
-					Thread.sleep(timeout);
-					timeout = (long)(timeout * TIMEOUT_FACTOR);
-					attempt++;
-				}
-			} while (response.statusCode() == 429);
-		} catch(InterruptedException e) {
-			Thread.currentThread().interrupt();
-			throw new OpenF1Exception("Request was interrupted", e);
-		} catch(IOException e) {
-			throw new OpenF1Exception("Network error while communicating with OpenF1 API", e);
-		}
-
+		HttpResponse<String> response = rateLimiter.executeWithRetry(() -> {
+			try {
+				System.out.println(System.currentTimeMillis());
+				return httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+			}
+			catch (IOException e) {
+				throw new OpenF1Exception("Network error while communicating with OpenF1 API", e);
+			}
+			catch (InterruptedException e) {
+				throw new OpenF1Exception("Client was interrupted", e);
+			}
+		});
+		System.out.println(System.currentTimeMillis());
 		if (response.statusCode() == 404)
 			return List.of();
 		else if (response.statusCode() != 200)
