@@ -15,13 +15,24 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-          server-id: central
-          server-username: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
-          server-password: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           gpg-passphrase: ${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
 
+      # Hier schreiben wir die settings.xml direkt für Sonatype Central ins .m2 Verzeichnis
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          echo "<settings>
+            <servers>
+              <server>
+                <id>central</id>
+                <username>${{ secrets.CENTRAL_TOKEN_USERNAME }}</username>
+                <password>${{ secrets.CENTRAL_TOKEN_PASSWORD }}</password>
+              </server>
+            </servers>
+          </settings>" > ~/.m2/settings.xml
+
       - name: Publish to Maven Central
-        run: mvn deploy --batch-mode -DskipTests -X -Dgpg.passphrase=${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
+        run: mvn deploy --batch-mode -DskipTests
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
