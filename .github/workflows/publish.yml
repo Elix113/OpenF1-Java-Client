@@ -22,6 +22,6 @@ jobs:
           gpg-passphrase: ${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
 
       - name: Publish to Maven Central
-        run: mvn deploy --batch-mode -DskipTests -Dgpg.passphrase=${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
+        run: mvn deploy --batch-mode -DskipTests -X -Dgpg.passphrase=${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
         env:
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_SIGNING_KEY_PASSWORD }}
