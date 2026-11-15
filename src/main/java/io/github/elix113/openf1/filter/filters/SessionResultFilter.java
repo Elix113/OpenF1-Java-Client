@@ -6,6 +6,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.SessionResult;
 
+/**
+ * @see <a href="https://openf1.org/docs/#session-result">openf1.org</a>
+ */
 public class SessionResultFilter extends BaseFilter {
 
     public static SessionResultFilter create() {

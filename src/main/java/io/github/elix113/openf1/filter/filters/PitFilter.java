@@ -8,6 +8,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Pit;
 
+/**
+ * @see <a href="https://openf1.org/docs/#pit">openf1.org</a>
+ */
 public class PitFilter extends BaseFilter {
 
     public static PitFilter create() {

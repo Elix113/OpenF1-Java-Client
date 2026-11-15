@@ -6,6 +6,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.StartingGrid;
 
+/**
+ * @see <a href="https://openf1.org/docs/#starting-grid">openf1.org</a>
+ */
 public class StartingGridFilter extends BaseFilter {
 
     public static StartingGridFilter create() {

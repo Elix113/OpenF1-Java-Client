@@ -8,6 +8,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Interval;
 
+/**
+ * @see <a href="https://openf1.org/docs/#intervals">openf1.org</a>
+ */
 public class IntervalFilter extends BaseFilter {
 
     public static IntervalFilter create() {

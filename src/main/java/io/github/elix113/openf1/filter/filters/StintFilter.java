@@ -5,14 +5,18 @@ import io.github.elix113.openf1.filter.BaseFilter;
 import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Stint;
+import io.github.elix113.openf1.models.TireCompound;
 
+/**
+ * @see <a href="https://openf1.org/docs/#stints">openf1.org</a>
+ */
 public class StintFilter extends BaseFilter {
 
     public static StintFilter create() {
         return new StintFilter();
     }
 
-    public FilterCondition<StintFilter, String> compound() {
+    public FilterCondition<StintFilter, TireCompound> compound() {
         return new FilterCondition<>(this, "compound");
     }
 

@@ -6,6 +6,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.ChampionshipTeam;
 
+/**
+ * @see <a href="https://openf1.org/docs/#teams-championship-beta">openf1.org</a>
+ */
 public class ChampionshipTeamFilter extends BaseFilter {
 
     public static ChampionshipTeamFilter create() {

@@ -8,6 +8,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Lap;
 
+/**
+ * @see <a href="https://openf1.org/docs/#laps">openf1.org</a>
+ */
 public class LapFilter extends BaseFilter {
 
     public static LapFilter create() {

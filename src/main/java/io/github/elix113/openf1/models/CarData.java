@@ -10,6 +10,7 @@ import java.time.Instant;
  * @author Elias Weissensteiner
  * @since 2026-11-14
  */
+
 public record CarData (
     @JsonProperty("brake") Integer brake,
     @JsonProperty("date") Instant date,

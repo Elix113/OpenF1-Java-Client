@@ -6,6 +6,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Driver;
 
+/**
+ * @see <a href="https://openf1.org/docs/#drivers">openf1.org</a>
+ */
 public class DriverFilter extends BaseFilter {
 
     public static DriverFilter create() {

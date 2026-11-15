@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @since 2026-11-14
  */
 public record Stint(
-    @JsonProperty("compound") String compound,
+    @JsonProperty("compound") TireCompound compound,
     @JsonProperty("driver_number") Integer driverNumber,
     @JsonProperty("lap_end") Integer lapEnd,
     @JsonProperty("lap_start") Integer lapStart,

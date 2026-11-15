@@ -9,11 +9,13 @@ import java.util.stream.Collectors;
 import io.github.elix113.openf1.client.OpenF1Client;
 import io.github.elix113.openf1.filter.Filter;
 import io.github.elix113.openf1.models.CarData;
+import io.github.elix113.openf1.models.RaceControlCategory;
 import io.github.elix113.openf1.models.Driver;
 import io.github.elix113.openf1.models.RaceControl;
 import io.github.elix113.openf1.models.Session;
 import io.github.elix113.openf1.models.SessionResult;
 import io.github.elix113.openf1.models.Stint;
+import io.github.elix113.openf1.models.SessionType;
 
 public class RaceAnalysisExample {
 
@@ -26,7 +28,7 @@ public class RaceAnalysisExample {
                 Filter.session()
                     .year().eq(2023)
                     .and().countryName().eq("Singapore")
-                    .and().sessionType().eq("Race")
+                    .and().sessionType().eq(SessionType.RACE)
                     .build()
             );
 
@@ -48,7 +50,7 @@ public class RaceAnalysisExample {
                     .build()
             );
 
-            // Map für schnellen Zugriff: driverNumber -> Name
+            // Map für schnellen Zugriff: driverNumber -> SessionName
             Map<Integer, String> driverNames = topTeamDrivers.stream()
                 .collect(Collectors.toMap(Driver::driverNumber, Driver::fullName));
 
@@ -112,7 +114,7 @@ public class RaceAnalysisExample {
             List<RaceControl> safetyCarEvents = client.getRaceControl(
                 Filter.raceControl()
                     .sessionKey().eq(sessionKey)
-                    .and().category().eq("SafetyCar")
+                    .and().category().eq(RaceControlCategory.SAFETY_CAR)
                     .build()
             );
 

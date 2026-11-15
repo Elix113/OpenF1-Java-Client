@@ -8,6 +8,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.TeamRadio;
 
+/**
+ * @see <a href="https://openf1.org/docs/#team-radio">openf1.org</a>
+ */
 public class TeamRadioFilter extends BaseFilter {
 
     public static TeamRadioFilter create() {

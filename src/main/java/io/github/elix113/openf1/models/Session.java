@@ -22,8 +22,8 @@ public record Session(
 	@JsonProperty("location") String location,
 	@JsonProperty("meeting_key") Integer meetingKey,
 	@JsonProperty("session_key") Integer sessionKey,
-	@JsonProperty("session_name") String sessionName,
-	@JsonProperty("session_type") String sessionType,
+	@JsonProperty("session_name") SessionName sessionName,
+	@JsonProperty("session_type") SessionType sessionType,
 	@JsonProperty("year") Integer year
 ) {
 	public static final String URL = "sessions?";

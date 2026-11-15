@@ -8,6 +8,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Meeting;
 
+/**
+ * @see <a href="https://openf1.org/docs/#meetings">openf1.org</a>
+ */
 public class MeetingFilter extends BaseFilter {
 
     public static MeetingFilter create() {

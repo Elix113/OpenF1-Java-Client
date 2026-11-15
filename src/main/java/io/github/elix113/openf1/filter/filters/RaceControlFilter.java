@@ -6,15 +6,21 @@ import io.github.elix113.openf1.client.OpenF1Client;
 import io.github.elix113.openf1.filter.BaseFilter;
 import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
+import io.github.elix113.openf1.models.RaceControlCategory;
+import io.github.elix113.openf1.models.Flag;
 import io.github.elix113.openf1.models.RaceControl;
+import io.github.elix113.openf1.models.RaceControlScope;
 
+/**
+ * @see <a href="https://openf1.org/docs/#race-control">openf1.org</a>
+ */
 public class RaceControlFilter extends BaseFilter {
 
     public static RaceControlFilter create() {
         return new RaceControlFilter();
     }
 
-    public FilterCondition<RaceControlFilter, String> category() {
+    public FilterCondition<RaceControlFilter, RaceControlCategory> category() {
         return new FilterCondition<>(this, "category");
     }
 
@@ -26,7 +32,7 @@ public class RaceControlFilter extends BaseFilter {
         return new FilterCondition<>(this, "driver_number");
     }
 
-    public FilterCondition<RaceControlFilter, String> flag() {
+    public FilterCondition<RaceControlFilter, Flag> flag() {
         return new FilterCondition<>(this, "flag");
     }
 
@@ -46,7 +52,7 @@ public class RaceControlFilter extends BaseFilter {
         return new FilterCondition<>(this, "qualifying_phase");
     }
 
-    public FilterCondition<RaceControlFilter, String> scope() {
+    public FilterCondition<RaceControlFilter, RaceControlScope> scope() {
         return new FilterCondition<>(this, "scope");
     }
 

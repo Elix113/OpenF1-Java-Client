@@ -6,8 +6,13 @@ import io.github.elix113.openf1.client.OpenF1Client;
 import io.github.elix113.openf1.filter.BaseFilter;
 import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
+import io.github.elix113.openf1.models.SessionName;
 import io.github.elix113.openf1.models.Session;
+import io.github.elix113.openf1.models.SessionType;
 
+/**
+ * @see <a href="https://openf1.org/docs/#sessions">openf1.org</a>
+ */
 public class SessionFilter extends BaseFilter {
 
     public static SessionFilter create() {
@@ -62,11 +67,11 @@ public class SessionFilter extends BaseFilter {
         return new FilterCondition<>(this, "session_key");
     }
 
-    public FilterCondition<SessionFilter, String> sessionName() {
+    public FilterCondition<SessionFilter, SessionName> sessionName() {
         return new FilterCondition<>(this, "session_name");
     }
 
-    public FilterCondition<SessionFilter, String> sessionType() {
+    public FilterCondition<SessionFilter, SessionType> sessionType() {
         return new FilterCondition<>(this, "session_type");
     }
 

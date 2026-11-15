@@ -8,6 +8,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.CarData;
 
+/**
+ * @see <a href="https://openf1.org/docs/#car-data">openf1.org</a>
+ */
 public class CarDataFilter extends BaseFilter {
 
     public static CarDataFilter create() {

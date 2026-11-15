@@ -6,6 +6,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.ChampionshipDriver;
 
+/**
+ * @see <a href="https://openf1.org/docs/#drivers-championship-beta">openf1.org</a>
+ */
 public class ChampionshipDriverFilter extends BaseFilter {
 
     public static ChampionshipDriverFilter create() {

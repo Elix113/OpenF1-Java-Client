@@ -8,6 +8,9 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Weather;
 
+/**
+ * @see <a href="https://openf1.org/docs/#weather">openf1.org</a>
+ */
 public class WeatherFilter extends BaseFilter {
 
     public static WeatherFilter create() {

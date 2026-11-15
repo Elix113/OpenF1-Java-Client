@@ -8,6 +8,10 @@ import io.github.elix113.openf1.filter.FilterCondition;
 import io.github.elix113.openf1.filter.FilterConnector;
 import io.github.elix113.openf1.models.Location;
 
+
+/**
+ * @see <a href="https://openf1.org/docs/#location">openf1.org</a>
+ */
 public class LocationFilter extends BaseFilter {
 
     public static LocationFilter create() {

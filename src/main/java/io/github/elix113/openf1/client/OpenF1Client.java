@@ -45,7 +45,7 @@ import io.github.elix113.openf1.models.StartingGrid;
 import io.github.elix113.openf1.models.Stint;
 import io.github.elix113.openf1.models.TeamRadio;
 import io.github.elix113.openf1.models.Weather;
-import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 /**
  * OpenF1Client
@@ -60,14 +60,14 @@ public class OpenF1Client {
 
 
 	private final HttpClient httpClient;
-	private final ObjectMapper objectMapper;
+	private final JsonMapper objectMapper;
 
 	public OpenF1Client() {
 		this.httpClient = HttpClient.newBuilder()
 			.connectTimeout(Duration.ofSeconds(10))
 			.followRedirects(HttpClient.Redirect.NORMAL)
 			.build();
-		this.objectMapper = new ObjectMapper();
+		this.objectMapper = new JsonMapper();
 	}
 
 	public <T> List<T> fetch(BaseFilter filter, Class<T> model) throws IOException, InterruptedException {
