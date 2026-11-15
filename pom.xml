@@ -9,19 +9,18 @@
     <version>1.0.1</version>
     <packaging>jar</packaging>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/elix113/OpenF1-Java-Client</url>
-        </repository>
-    </distributionManagement>
-
     <name>OpenF1-Java-Client</name>
     <description>A robust, production-ready Java client wrapper for the OpenF1 API with built-in rate limiting and
         retries.
     </description>
     <url>https://github.com/elix113/OpenF1-Java-Client</url>
+
+    <developers>
+        <developer>
+            <id>elix113</id>
+            <name>Elias</name>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
@@ -30,12 +29,13 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <id>elix113</id>
-            <name>Elias Weissensteiner</name>
-        </developer>
-    </developers>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/elix113/OpenF1-Java-Client</url>
+        </repository>
+    </distributionManagement>
 
     <scm>
         <connection>scm:git:git://github.com/elix113/OpenF1-Java-Client.git</connection>
