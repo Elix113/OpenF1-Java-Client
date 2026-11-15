@@ -1,5 +1,7 @@
 package io.github.elix113.openf1.filter;
 
+import java.util.List;
+
 /**
  * Operator
  * @author Elias Weissensteiner
@@ -55,6 +57,14 @@ public class FilterCondition<F extends BaseFilter, T> {
 
 	@SafeVarargs
 	public final FilterConnector<F> in(T... values) {
+		if (values != null) {
+			for (T value : values)
+				filter.addParam(property, "=", value);
+		}
+		return new FilterConnector<>(filter);
+	}
+
+	public final FilterConnector<F> in(List<T> values) {
 		if (values != null) {
 			for (T value : values)
 				filter.addParam(property, "=", value);
