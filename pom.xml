@@ -6,7 +6,7 @@
 
     <groupId>io.github.elix113</groupId>
     <artifactId>openf1-java-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <distributionManagement>
